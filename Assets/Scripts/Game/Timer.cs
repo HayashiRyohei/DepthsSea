@@ -43,10 +43,12 @@ public class Timer : MonoBehaviour {
 		}
 	}
 
-
+	/// <summary>
+	/// これが呼ばれると,ゲームを開始する.
+	/// </summary>
 	public void PlayGame() {
 		backgroundAnimator.SetBool ("play", true);
-		GameManager.Instance.waveCount++;
+		GameManager.Instance.AddWave();
 		GameManager.Instance.state = GameManager.State.PLAY;
 	}
 
