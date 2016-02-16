@@ -419,6 +419,7 @@ GameObject:
   - 224: {fileID: 896489853}
   - 222: {fileID: 896489855}
   - 114: {fileID: 896489854}
+  - 114: {fileID: 896489856}
   m_Layer: 5
   m_Name: WaveCount
   m_TagString: Untagged
@@ -482,6 +483,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 896489852}
+--- !u!114 &896489856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 896489852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a00f79571d6c94cd487f9688cea2f105, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waveCountText: {fileID: 896489854}
 --- !u!1 &1010620655
 GameObject:
   m_ObjectHideFlags: 0
@@ -548,11 +561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec5fcde2b5ccd4d11b02be3a40bd4878, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 0
-  HP: 0
-  waveCount: 0
   state: 0
-  isNoDamage: 0
 --- !u!1 &1542529256
 GameObject:
   m_ObjectHideFlags: 0
@@ -739,6 +748,7 @@ GameObject:
   - 222: {fileID: 1746192562}
   - 114: {fileID: 1746192561}
   - 114: {fileID: 1746192560}
+  - 114: {fileID: 1746192563}
   m_Layer: 5
   m_Name: HPBar
   m_TagString: Untagged
@@ -809,6 +819,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1746192558}
+--- !u!114 &1746192563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1746192558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34db33bd3754446cc852f7a16aa2b6b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpBar: {fileID: 241430162}
 --- !u!1 &1796586842
 GameObject:
   m_ObjectHideFlags: 0
