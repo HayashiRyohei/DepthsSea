@@ -51,8 +51,7 @@ public class Timer : MonoBehaviour {
 		GameManager.Instance.AddWave();
 		GameManager.Instance.state = GameManager.State.PLAY;
 	}
-
-
+		
 	/// <summary>
 	/// タイマーを戻す.
 	/// </summary>
@@ -61,4 +60,5 @@ public class Timer : MonoBehaviour {
 		GameManager.Instance.state = GameManager.State.WAIT;
 		Application.UnloadLevel ("_SubResult");
 	}
+
 }
