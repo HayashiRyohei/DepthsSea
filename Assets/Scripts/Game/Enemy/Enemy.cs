@@ -19,6 +19,7 @@ public class Enemy : MonoBehaviour {
 		Move();
 	}
 	private void OnCollisionEnter(Collision co) {
+		Debug.Log(co.gameObject.name);
 		if(targetTag.Equals(targetTag)) TargetHit();
 	}
 #endregion
