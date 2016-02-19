@@ -1,15 +1,30 @@
 fileFormatVersion: 2
-guid: 58a99260e06750c4db7a631760146a4a
-timeCreated: 1455771702
+guid: 1fc5cc2d36acf894796b5c1dbc83f55e
+timeCreated: 1455777133
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Cube
+    100000: body1
+    100002: Head
+    100004: Hips
+    100006: Screw
+    100008: screw_hane
+    100010: sipo
+    100012: //RootNode
+    400000: body1
+    400002: Head
+    400004: Hips
+    400006: Screw
+    400008: screw_hane
+    400010: sipo
+    400012: //RootNode
+    4300000: body1
+    4300002: screw_hane
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: body1
+    13700002: screw_hane
   materials:
     importMaterials: 1
     materialName: 0
@@ -68,7 +83,7 @@ ModelImporter:
     rootMotionBoneName: 
     hasTranslationDoF: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
