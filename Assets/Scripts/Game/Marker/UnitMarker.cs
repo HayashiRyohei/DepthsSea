@@ -32,7 +32,6 @@ public class UnitMarker : MonoBehaviour {
 		unit = (GameObject)Instantiate (selectUnit);
 		unit.transform.position = setPos;
 		unit.transform.Rotate (dir);
-		unitInfoPanel.SetActive (false);
 	}
 
 	/// <summary>
@@ -40,6 +39,5 @@ public class UnitMarker : MonoBehaviour {
 	/// </summary>
 	public void DeleteUnit () {
 		Destroy (unit);
-		unitInfoPanel.SetActive (false);
 	}
 }
