@@ -23,7 +23,6 @@ public class EnemyEmitter : MonoBehaviour {
 				Emit();
 				measureEmitInterval = 0f;
 			} else {
-				Debug.Log(Time.deltaTime);
 				measureEmitInterval += Time.deltaTime;
 			}
 		}

@@ -32,7 +32,6 @@ public class Timer : MonoBehaviour {
 
 				// 時間を進める.
 				time++;
-				Debug.Log (time);
 
 				yield return new WaitForSeconds (1.0f);
 				break;

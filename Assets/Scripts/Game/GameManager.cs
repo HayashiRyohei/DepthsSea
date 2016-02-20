@@ -31,7 +31,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 	private GameObject selectMarker;
 	public GameObject Marker {
 		get{ return this.selectMarker; }
-		set { this.selectMarker = Marker; }
+		set { this.selectMarker = value; }
 	}
 
 	void Awake() {
@@ -70,9 +70,5 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 	/// </summary>
 	public void CalcCost(int cost) {
 		unitCost += cost;
-	}
-
-	void Update() {
-		Debug.Log (this.hp);
 	}
 }
