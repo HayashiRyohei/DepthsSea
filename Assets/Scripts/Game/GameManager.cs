@@ -17,11 +17,22 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 	public int WaveCount {
 		get{return this.waveCount;} 
 	}
+	// 全体のコスト.
+	private int unitCost;
+	public int UnitCost { 
+		get{ return this.unitCost; }
+	}
 	// ゲームのステータス.
 	public enum State{WAIT,PLAY,RESULT,};
 	public State state = State.PLAY;
 	// これがtrueなら、ノーダメージ(初期状態はtrue).
 	private bool isNoDamage;
+	// 選択されているマーカー
+	private GameObject selectMarker;
+	public GameObject Marker {
+		get{ return this.selectMarker; }
+		set { this.selectMarker = Marker; }
+	}
 
 	void Awake() {
 		InitManager ();
@@ -35,6 +46,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 		this.hp = 100;
 		this.waveCount = 0;
 		isNoDamage = true;
+		selectMarker = null;
 	}
 
 	/// <summary>
@@ -51,6 +63,13 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 	/// </summary>
 	public void AddWave() { 
 		waveCount++;
+	}
+
+	/// <summary>
+	/// コストを増減させる.
+	/// </summary>
+	public void CalcCost(int cost) {
+		unitCost += cost;
 	}
 
 	void Update() {

@@ -18,6 +18,7 @@ public class Raycaster : MonoBehaviour {
 				RaycastHit hit = new RaycastHit ();
 				if (Physics.Raycast(ray , out hit, layerMask)) {
 					unitInfoPanel.SetActive (true);
+					GameManager.Instance.Marker = hit.collider.gameObject;
 				}
 			}
 		// }

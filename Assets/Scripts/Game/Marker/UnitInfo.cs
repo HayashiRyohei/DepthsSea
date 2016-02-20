@@ -14,6 +14,16 @@ public class UnitInfo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 	// 情報を表示する場所.
 	[SerializeField]
 	Text textInfo;
+	// 選択された時にセットするユニット.
+	[SerializeField]
+	GameObject unit;
+
+	/// <summary>
+	/// ユニットを配置する.
+	/// </summary>
+	public void SelectUnit() {
+		GameManager.Instance.Marker.GetComponent<UnitMarker> ().SetUnit (unit);
+	}
 
 	/// <summary>
 	/// マウスが乗ると,情報が表示される.
