@@ -11,16 +11,24 @@ public class Enemy : MonoBehaviour {
 	private int nowHp;
 	[Range(0.1f, 10f)]
 	public float velocity = 1f;
+	[Range(1, 10)]
+	public int attack = 1;
 	[Header("移動する方向")]
 	public Vector3 direction;
 
 #region MonoBehaviourEvent
+	private void OnEnable() {
+		nowHp = hp;
+	}
 	private void Update() {
 		Move();
 	}
 	private void OnCollisionEnter(Collision co) {
-		Debug.Log(co.gameObject.name);
-		if(targetTag.Equals(targetTag)) TargetHit();
+		if(co.gameObject.tag.Equals(targetTag)) {
+			TargetHit();
+		} else {
+			SubHP(1);
+		}		
 	}
 #endregion
 #region Function
@@ -28,7 +36,16 @@ public class Enemy : MonoBehaviour {
 		transform.position += direction * velocity * Time.deltaTime;
 	}
 	private void TargetHit() {
+		GameManager.Instance.Damage(attack);
 		Destroy(gameObject);
+	}
+	private void SubHP(int sub) {
+		nowHp -= sub;
+		if(nowHp < 0) {
+			nowHp = 0;
+			GameManager.Instance.AddDestroyEnemy();
+			Destroy(gameObject);
+		}
 	}
 #endregion
 }
