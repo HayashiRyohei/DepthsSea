@@ -11,6 +11,8 @@ public class Enemy : MonoBehaviour {
 	private int nowHp;
 	[Range(0.1f, 10f)]
 	public float velocity = 1f;
+	[Range(1, 10)]
+	public int attack = 1;
 	[Header("移動する方向")]
 	public Vector3 direction;
 
@@ -34,13 +36,14 @@ public class Enemy : MonoBehaviour {
 		transform.position += direction * velocity * Time.deltaTime;
 	}
 	private void TargetHit() {
-		GameManager.Instance.Damage();
+		GameManager.Instance.Damage(attack);
 		Destroy(gameObject);
 	}
 	private void SubHP(int sub) {
 		nowHp -= sub;
 		if(nowHp < 0) {
 			nowHp = 0;
+			GameManager.Instance.AddDestroyEnemy();
 			Destroy(gameObject);
 		}
 	}

@@ -289,6 +289,7 @@ MonoBehaviour:
   targetTag: Ruin
   hp: 1
   velocity: 3
+  attack: 2
   direction: {x: -1, y: 0, z: 0}
 --- !u!137 &13712398
 SkinnedMeshRenderer:
@@ -1937,6 +1938,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: hp
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: attack
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

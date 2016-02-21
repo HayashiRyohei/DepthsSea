@@ -15,7 +15,7 @@ public class HPController : MonoBehaviour {
 	}
 
 	void Update() {
-		hpBar.fillAmount = gm.HP / 100.0f;
-		hpValue.text = gm.HP + "/" + 100;
+		hpBar.fillAmount = gm.HP / (float)gm.MaxHP;
+		hpValue.text = gm.HP + "/" + gm.MaxHP;
 	}
 }
