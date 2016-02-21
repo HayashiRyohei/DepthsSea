@@ -15,12 +15,18 @@ public class Enemy : MonoBehaviour {
 	public Vector3 direction;
 
 #region MonoBehaviourEvent
+	private void OnEnable() {
+		nowHp = hp;
+	}
 	private void Update() {
 		Move();
 	}
 	private void OnCollisionEnter(Collision co) {
-		Debug.Log(co.gameObject.name);
-		if(targetTag.Equals(targetTag)) TargetHit();
+		if(co.gameObject.tag.Equals(targetTag)) {
+			TargetHit();
+		} else {
+			SubHP(1);
+		}		
 	}
 #endregion
 #region Function
@@ -28,7 +34,15 @@ public class Enemy : MonoBehaviour {
 		transform.position += direction * velocity * Time.deltaTime;
 	}
 	private void TargetHit() {
+		GameManager.Instance.Damage();
 		Destroy(gameObject);
+	}
+	private void SubHP(int sub) {
+		nowHp -= sub;
+		if(nowHp < 0) {
+			nowHp = 0;
+			Destroy(gameObject);
+		}
 	}
 #endregion
 }

@@ -11,17 +11,16 @@ public class RingRenderer : MonoBehaviour {
 	private Material mat;
 
 	[Header("パラメータ")]
-	[SerializeField]
-	private Color color = Color.white;
-	[SerializeField, Range(0f, 1f)]
-	private float innerRadius = 0.2f;
-	[SerializeField, Range(0f, 1f)]
-	private float outerRadius = 0.2f;
-	[SerializeField, Range(0f, 1f)]
-	private float innerBlurThickness = 0.002f;
-	[SerializeField, Range(0f, 1f)]
-	private float outerBlurThickness = 0.002f;
-
+	public Color color = Color.white;
+	[Range(0f, 1f)]
+	public float innerRadius = 0.39f;
+	[Range(0f, 1f)]
+	public float outerRadius = 0.4f;
+	[Range(0f, 1f)]
+	public float innerBlurThickness = 0.002f;
+	[Range(0f, 1f)]
+	public float outerBlurThickness = 0.002f;
+	public bool autoBlurFit = false;
 #region MonoBehaviourEvent
 	private void OnEnable() {
 		if(!mat) {
@@ -33,11 +32,15 @@ public class RingRenderer : MonoBehaviour {
 		mat.SetColor("_Color", color);
 		mat.SetFloat("_InnerRadius", innerRadius);
 		mat.SetFloat("_OuterRadius", outerRadius);
-		mat.SetFloat("_InnerBlurThickness", innerBlurThickness);
-		mat.SetFloat("_OuterBlurThickness", outerBlurThickness);
+		//ブラー
+		float blurPar = 2f;
+		if(autoBlurFit) {
+			blurPar = (transform.localScale.x + transform.localScale.y) * 0.5f;
+		}
+		mat.SetFloat("_InnerBlurThickness", innerBlurThickness / blurPar);
+		mat.SetFloat("_OuterBlurThickness", outerBlurThickness / blurPar);
 		//レンダリング
 		mat.SetPass(0);
-		//Graphics.DrawMeshNow(mesh, transform.position, transform.rotation);
 		Graphics.DrawMeshNow(mesh, transform.localToWorldMatrix);
 	}
 #endregion
